@@ -1,13 +1,16 @@
+import csv
 from flask import Flask, jsonify
 
 app = Flask(__name__, static_url_path="")
 
 @app.route('/json', methods=['GET'])
 def jaison():
-    contenido={"id":1, "nombre":"Jamil", "Apellido":"Candia"}
-    contenido2 = {"id": 2, "nombre": "no es Jamil", "Apellido": "no es Candia"}
-    lista = (contenido, contenido2)
-    return jsonify(lista)
+    results = []
+    with open('data/ejemplo.csv') as File:
+        reader = csv.DictReader(File)
+        for row in reader:
+            results.append(row)
+    return jsonify(results)
 
 @app.route("/", methods=['GET'])
 
