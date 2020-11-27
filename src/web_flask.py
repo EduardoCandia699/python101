@@ -6,7 +6,7 @@ app = Flask(__name__, static_url_path="")
 @app.route('/json', methods=['GET'])
 def jaison():
     results = []
-    with open('data/ejemplo.csv') as File:
+    with open('Data/ejemplo.csv') as File:
         reader = csv.DictReader(File)
         for row in reader:
             results.append(row)

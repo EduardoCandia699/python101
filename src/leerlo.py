@@ -2,7 +2,7 @@ if __name__ == '__main__':
     import csv
 
     results = []
-    with open('ejemplo.csv') as File:
+    with open('data/ejemplo.csv') as File:
         reader = csv.DictReader(File)
         for row in reader:
             results.append(row)
